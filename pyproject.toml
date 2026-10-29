@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ngtree"
+dynamic = ["version"]
+description = "Stablo koje se menja direktno u prikazu — NiceGUI element za bilo koju stranicu (TreeEditor)"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["nicegui>=3.15,<4"]
+
+[tool.setuptools]
+packages = ["ngtree"]
+
+[tool.setuptools.dynamic]
+version = { attr = "ngtree.__version__" }
