@@ -122,6 +122,28 @@ Folder ngfw-a: promenljiva `NGFW_DIR`, ili putanja u fajlu `ngfw.local` (nije u 
 U aplikaciji bez ngfw-a: wheel u `wheels/`, u requirements.txt `./wheels/ngtree-0.1.0-py3-none-any.whl`.
 Zavisi samo od `nicegui>=3.15,<4`.
 
+## Nova verzija (GitHub)
+
+```bash
+# 1. izmena koda, nova verzija u ngtree/__init__.py (__version__), stavka „## 0.1.1” u CHANGELOG.md
+bash build.sh                                   # dist/ngtree-0.1.1-py3-none-any.whl (proverava CHANGELOG)
+
+# 2. commit, oznaka verzije, slanje — oznaka mora biti „annotated” (-a): --follow-tags šalje samo takve
+git add -A
+git commit -m "ngtree 0.1.1: šta je novo"
+git tag -a v0.1.1 -m "ngtree 0.1.1"
+git push --follow-tags
+
+# 3. GitHub release sa wheel-om i opisom iz CHANGELOG.md
+awk '$0=="## 0.1.1"{on=1;next} /^## /{on=0} on' CHANGELOG.md > /tmp/notes.md
+gh release create v0.1.1 dist/ngtree-0.1.1-py3-none-any.whl --title "ngtree 0.1.1" --notes-file /tmp/notes.md
+
+# 4. isti kod u ngfw: bash build.sh --ngfw, pa u ngfw-u nova verzija + CHANGELOG i isti postupak tamo
+```
+
+Provera: pre koraka 2 `git status` sme da pokaže samo ono što ste menjali (`dist/`, `ngfw.local` se ne
+šalju); `git tag` i `gh release list` pokazuju šta je objavljeno.
+
 ## Ograničenja
 
 - Čvor se ne može prevući iz jednog stabla u drugo (svako stablo prima samo svoje čvorove).
