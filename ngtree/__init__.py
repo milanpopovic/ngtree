@@ -16,4 +16,4 @@ from .stores import JsonFileStore, MemoryStore, TreeStore
 __all__ = ["TreeEditor", "TreeStore", "JsonFileStore", "MemoryStore", "TreeError", "FEATURES", "ops",
            "translate", "EN"]
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"

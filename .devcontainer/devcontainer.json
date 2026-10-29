@@ -1,0 +1,10 @@
+{
+  "name": "ngtree demo",
+  "image": "mcr.microsoft.com/devcontainers/python:3.12",
+  "postCreateCommand": "pip install -e .",
+  "postAttachCommand": "ngtree-demo",
+  "forwardPorts": [8098],
+  "portsAttributes": {
+    "8098": { "label": "ngtree demo", "onAutoForward": "openBrowser" }
+  }
+}

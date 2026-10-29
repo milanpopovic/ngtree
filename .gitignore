@@ -5,3 +5,4 @@ __pycache__/
 examples/demo-data/
 .nicegui/
 ngfw.local
+ngtree-demo-data/

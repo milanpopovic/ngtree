@@ -1,5 +1,7 @@
 # ngtree — stablo kao NiceGUI element
 
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/milanpopovic/ngtree?quickstart=1)
+
 `TreeEditor` je ceo uređivač stabla iz aplikacije **stabla** kao jedan NiceGUI element: ubacite ga na bilo koju
 stranicu, a vi odlučujete gde se stablo čuva, ko sme da ga menja i koje mogućnosti se vide.
 
@@ -14,8 +16,22 @@ Izvorni kod je samo ovde (`ngtree/`); `bash build.sh --ngfw` ga kopira u ngfw
 ([milanpopovic/ngfw](https://github.com/milanpopovic/ngfw), `ngfw/tree/`).
 
 ```bash
-pip install "ngtree @ git+https://github.com/milanpopovic/ngtree@v0.1.0"   # ili wheel iz GitHub release-a
+pip install "ngtree @ git+https://github.com/milanpopovic/ngtree@v0.1.1"   # ili wheel iz GitHub release-a
 ```
+
+## Isprobajte (bez preuzimanja koda)
+
+- **U pregledaču:** dugme **Open in GitHub Codespaces** gore → *Create codespace*; posle minut-dva primer se
+  sam pokrene i otvori u novoj kartici (ako se ne otvori: kartica **Ports** → 8098 → 🌐). Potreban je GitHub nalog;
+  Codespaces je besplatan do mesečnog limita. Kad završite: github.com/codespaces → ⋯ → *Delete*.
+- **Na svom računaru** (Python 3.10+), jedna komanda:
+
+  ```bash
+  pipx run --spec git+https://github.com/milanpopovic/ngtree ngtree-demo        # → http://localhost:8098
+  ```
+
+  ili u virtuelnom okruženju: `pip install "git+https://github.com/milanpopovic/ngtree" && ngtree-demo`.
+  Opcije: `--port 8100`, `--data <folder>` (podrazumevano `./ngtree-demo-data`, tu je fajl primera i kopije).
 
 ## Primer
 
@@ -37,7 +53,8 @@ def index():
 ui.run()
 ```
 
-Ceo primer sa tri stabla na jednoj strani: `python examples/demo.py` → http://localhost:8098
+Ceo primer sa tri stabla na jednoj strani: `ngtree-demo`, ili iz foldera koda `python examples/demo.py`
+→ http://localhost:8098 (kod: `ngtree/demo.py`).
 
 ## U stablu (kad sme da se menja)
 
